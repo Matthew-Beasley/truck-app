@@ -2,9 +2,9 @@ const { client } = require('./client');
 
 // refactor these
 
-const createService = async (serviceType, mileage) => {
+const createService = async ({ serviceType, mileage }) => {
   const sql = `
-  INSERT INTO services ( type, mileage )
+  INSERT INTO services ( service_type, mileage )
   VALUES ($1, $2)
   RETURNING *`;
   const data = await client.query(sql, [serviceType, mileage]);
@@ -12,7 +12,7 @@ const createService = async (serviceType, mileage) => {
 }
 
 
-const updateServices = async (id, mileage) => {
+const updateServices = async ({ id, mileage }) => {
   const sql = `
   UPDATE services
   SET mileage = $1

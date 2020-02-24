@@ -32,7 +32,7 @@ const deleteTruck = async (truckId) => {
   const sql = `
   DELETE FROM trucks
   WHERE truck_id = $1`;
-  const data = client.query(sql, [truckId]);
+  const data = await client.query(sql, [truckId]);
   return data.rows[0];
 }
 

@@ -27,7 +27,7 @@ const updateSchedule = async (scheduleId, truckId) => {
   SET schedule_id = $1
   WHERE truck_id = $2
   RETURNING *`;
-  const data = client.query(sql, [scheduleId, truckId]);
+  const data = await client.query(sql, [scheduleId, truckId]);
   return data.rows[0];
 }
 
