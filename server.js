@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const { sync } = require('./datalayer/sync');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const { apiRouter } = require('./api/index');
@@ -11,7 +12,7 @@ app.use('/api', apiRouter);
 
 app.get('/', (req, res, next) => {
   try {
-    res.sendFile('./index.html');
+    res.sendFile(path.join(__dirname, 'index.html'));
   } catch (error) {
     next(error);
   }

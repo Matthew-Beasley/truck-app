@@ -1,10 +1,10 @@
 const express = require('express');
-const { createTrucks, readTrucks, updateTruck, deleteTruck } = require('../datalayer/index');
+const { createTruck, readTrucks, updateTruck, deleteTruck } = require('../datalayer/index');
 const trucksRouter = express.Router();
 
 trucksRouter.post('/', async (req, res, next) => {
   try {
-    const rows = await createTrucks(req.body);
+    const rows = await createTruck(req.body);
     res.status(200).send(rows);
   } catch (error) {
     next(error);

@@ -8,7 +8,7 @@ const {
 const {
   createTruck,
   readTrucks,
-  updateTrucks,
+  updateTruck,
   deleteTruck
 } = require('./trucks');
 
@@ -28,7 +28,7 @@ module.exports = {
 
   createTruck,
   readTrucks,
-  updateTrucks,
+  updateTruck,
   deleteTruck,
 
   createSchedule,
