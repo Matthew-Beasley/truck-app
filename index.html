@@ -1,17 +1,85 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <link rel="stylesheet" href="/assets/styles.css">
-    <script src="" async defer></script>
+    <script src='https://unpkg.com/react@16.3.1/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js'></script>
+    <script src='https://unpkg.com/react-router@5.0.0/umd/react-router.min.js'></script>
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js'></script>
   </head>
+
   <body>
-    <h1>Hello World!</h1>
-    
-    <script src="" async defer></script>
+    <div id="root">
+
+    </div>
+    <script type="text/babel">
+      const { Link } = ReactRouterDOM;
+      const { Route } = ReactRouterDOM;
+     // const { useState, useEffect } = React;
+
+
+      const Home = () => {
+        return (
+          <h1>At Home</h1>
+        )
+      }
+
+
+      const Trucks = () => {
+
+        return (
+          <h1>In Trucks</h1>
+        )
+      }
+
+
+      const Services = () => {
+        return (
+          <h1>In Services</h1>
+        )
+      }
+
+
+      const Schedule = () => {
+        return (
+          <h1>In Schedule</h1>
+        )
+      }
+
+
+      const App = () => {
+
+        return (
+          <div className="wrapper">
+            <h1>In App return</h1>
+            <ul id="nave-links">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/Trucks">Manage Trucks</Link></li>
+              <li><Link to="/Services">Manage Services</Link></li>
+              <li><Link to="/Schedule">Manage Schedule</Link></li>
+            </ul>
+            <Route exact path="/" component={Home} />
+            <Route path="/Trucks" component={Trucks} />
+            <Route path="/Services" component={Services} />
+            <Route path="/Schedule" component={Schedule} />
+          </div>
+        )
+      }
+      ReactDOM.render(
+        <ReactRouterDOM.HashRouter>
+          <App />
+        </ReactRouterDOM.HashRouter>,
+        document.querySelector('#root'));
+    </script>
   </body>
+
 </html>
